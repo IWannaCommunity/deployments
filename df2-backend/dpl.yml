@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delicious-fruit-argotest
+  namespace: iwc
+  labels:
+    app: delicious-fruit
+    env: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: delicious-fruit
+      env: staging
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: delicious-fruit
+        env: staging
+    spec:
+      volumes:
+        - name: configuration
+          secret:
+            secretName: delicious-fruit-staging
+            defaultMode: 420
+      containers:
+        - name: delicious-fruit
+          image: 'ghcr.io/iwannacommunity/delfruit-backend:v2.0.0-rc0'
+          ports:
+            - containerPort: 4201
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: configuration
+              mountPath: /home/node/app/src/config/
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
