@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: delicious-fruit-argotest
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: backend=ghcr.io/iwannacommunity/delfruit-backend:latest
-    argocd-image-updater.argoproj.io/backend.update-strategy: digest
   labels:
     app: delicious-fruit
     env: staging
@@ -28,6 +25,7 @@ spec:
             defaultMode: 420
       containers:
         - name: delicious-fruit
+          image: ghcr.io/iwannacommunity/delfruit-backend:latest
           ports:
             - containerPort: 4201
               protocol: TCP
