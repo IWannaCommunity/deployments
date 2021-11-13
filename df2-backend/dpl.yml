@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: delicious-fruit-testing
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: 'backend=ghcr.io/iwannacommunity/delfruit-backend:latest'
+    argocd-image-updater.argoproj.io/backend.update-strategy: digest
+    argocd-image-updater.argoproj.io/write-back-method: argocd
   labels:
     app: delicious-fruit
     env: testing
