@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: delicious-fruit-argotest
+  name: delicious-fruit-testing
   labels:
     app: delicious-fruit
-    env: staging
+    env: testing
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: delicious-fruit
-      env: staging
+      env: testing
   template:
     metadata:
       creationTimestamp: null
       labels:
         app: delicious-fruit
-        env: staging
+        env: testing
     spec:
       volumes:
         - name: configuration
           secret:
-            secretName: delicious-fruit-staging
+            secretName: delicious-fruit-testing
             defaultMode: 420
       containers:
         - name: delicious-fruit
