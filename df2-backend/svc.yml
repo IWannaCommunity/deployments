@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: delicious-fruit-testing
+  labels:
+    app: delicious-fruit
+    env: testing
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 4201
+      targetPort: 4201
+  selector:
+    app: delicious-fruit
+    env: testing
+  type: ClusterIP
+  sessionAffinity: None
