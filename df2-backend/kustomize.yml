@@ -4,6 +4,6 @@ images:
 - name: ghcr.io/iwannacommunity/delfruit-backend
   newTag: "latest"
 resources:
-    - dpl.yml
-    - ing.yml
-    - svc.yml
+    - k8s/dpl.yml
+    - k8s/ing.yml
+    - k8s/svc.yml
