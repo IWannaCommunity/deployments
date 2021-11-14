@@ -6,7 +6,7 @@ metadata:
     app: delicious-fruit
     env: testing
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-staging
     ingress.kubernetes.io/cors-enable: 'true'
     kubernetes.io/ingress.class: haproxy
 spec:
