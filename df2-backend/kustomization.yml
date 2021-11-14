@@ -8,4 +8,3 @@ resources:
 images:
     - name: backend
       newName: ghcr.io/iwannacommunity/delfruit-backend
-      newTag: "latest"
