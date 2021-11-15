@@ -3,9 +3,10 @@ kind: Deployment
 metadata:
   name: delicious-fruit-testing
   annotations:
-    argocd-image-updater.argoproj.io/image-list: 'backend=ghcr.io/iwannacommunity/delfruit-backend:latest'
-    argocd-image-updater.argoproj.io/backend.update-strategy: digest
-    argocd-image-updater.argoproj.io/write-back-method: argocd
+    keel.sh/policy: force
+    keel.sh/trigger: poll
+    keel.sh/match-tag: "true"
+    keel.sh/pollSchedule: "@every 2m"
   labels:
     app: delicious-fruit
     env: testing

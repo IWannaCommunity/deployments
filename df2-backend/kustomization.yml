@@ -7,3 +7,4 @@ resources:
 - svc.yml
 images:
 - name: ghcr.io/iwannacommunity/delfruit-backend
+  newTag: latest
