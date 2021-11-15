@@ -6,4 +6,4 @@ resources:
 - ing.yml
 - svc.yml
 images:
-- name: app
+- name: ghcr.io/iwannacommunity/delfruit-backend

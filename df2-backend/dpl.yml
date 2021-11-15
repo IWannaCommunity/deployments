@@ -29,7 +29,7 @@ spec:
             defaultMode: 420
       containers:
         - name: delicious-fruit
-          image: app
+          image: ghcr.io/iwannacommunity/delfruit-backend
           ports:
             - containerPort: 4201
               protocol: TCP
