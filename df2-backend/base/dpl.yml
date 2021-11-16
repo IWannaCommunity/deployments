@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: delicious-fruit-testing
+  name: delicious-fruit
   annotations:
     keel.sh/policy: force
     keel.sh/trigger: poll
@@ -9,19 +9,16 @@ metadata:
     keel.sh/pollSchedule: "@every 2m"
   labels:
     app: delicious-fruit
-    env: testing
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: delicious-fruit
-      env: testing
   template:
     metadata:
       creationTimestamp: null
       labels:
         app: delicious-fruit
-        env: testing
     spec:
       volumes:
         - name: configuration

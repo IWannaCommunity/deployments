@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delicious-fruit
+spec:
+  template:
+    spec:
+      volumes:
+        - name: configuration
+          secret:
+            secretName: delicious-fruit-staging

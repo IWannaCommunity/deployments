@@ -1,21 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: delicious-fruit-testing
-  labels:
-    app: delicious-fruit
-    env: testing
+  name: delicious-fruit
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
-    ingress.kubernetes.io/cors-enable: 'true'
-    kubernetes.io/ingress.class: haproxy
 spec:
   tls:
     - hosts:
-        - df2-api-testing.iwannacommunity.com
-      secretName: df2-api-testing.iwannacommunity.com
+        - df2.api.testing.iwannacommunity.com
+      secretName: df2.api.testing.iwannacommunity.com
   rules:
-    - host: df2-api-testing.iwannacommunity.com
+    - host: df2.api.testing.iwannacommunity.com
       http:
         paths:
           - path: /
