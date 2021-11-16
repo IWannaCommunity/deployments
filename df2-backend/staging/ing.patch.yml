@@ -7,16 +7,16 @@ metadata:
 spec:
   tls:
     - hosts:
-        - df2.api.testing.iwannacommunity.com
-      secretName: df2.api.testing.iwannacommunity.com
+        - df2.api.staging.iwannacommunity.com
+      secretName: df2.api.staging.iwannacommunity.com
   rules:
-    - host: df2.api.testing.iwannacommunity.com
+    - host: df2.api.staging.iwannacommunity.com
       http:
         paths:
           - path: /
             pathType: ImplementationSpecific
             backend:
               service:
-                name: delicious-fruit-testing
+                name: delicious-fruit-staging
                 port:
                   name: http
